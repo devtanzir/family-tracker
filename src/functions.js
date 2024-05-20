@@ -33,6 +33,9 @@ const cellCheck = (cell) => {
 
 const nameExist = (name) => {
   const allData = getDataLs("products");
+  if (!allData) {
+    return true;
+  }
 
   const result = allData.filter((item) => item.name === name);
   if (result.length === 0) {
