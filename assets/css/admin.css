@@ -1,0 +1,62 @@
+/* Admin Css */
+.shop-data tr{
+    vertical-align: middle !important;
+}
+i{
+    pointer-events: none;
+ }
+ label{
+    user-select: none;
+ }
+#exampleModal .modal-dialog {
+    max-width: 600px;
+}
+.student-info {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+table{
+    width: 100% !important;
+}
+
+/** Show Single Data */
+
+div#showData img {
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+}
+
+div#showData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+div#showData h4 {
+    font-size: 35px;
+    color: #000;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+div#showData p {
+    font-size: 20px;
+    color: #666;
+    text-transform: capitalize;
+}

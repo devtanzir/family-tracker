@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name='description' content='this template is made with ❤ by tanzir ibne ali' />
+    <meta name='keywords' content='HTML,CSS,JavaScript' />
+    <meta name='author' content='Tanzir Ibne ali' />
+
+    <link rel="icon" href="./assets/img/favicon.svg">
+
+        <!-- Data Table -->
+        <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.0.7/datatables.min.css" rel="stylesheet">
+
+    <!-- https://cdnjs.com/libraries/twitter-bootstrap/5.0.0-beta1 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css"
+    />
+    <!-- https://cdnjs.com/libraries/font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+
+    <link rel="stylesheet" href="./assets/css/admin.css" />
+    <title> Dashboard </title>
+  </head>
+  <body>
+    <div class="container-fluid px-5  my-5">
+      <div class="row justify-content-center">
+        <div class="col-md-12">
+
+          <br />
+          <br />
+          <div class="card shadow">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center ">
+                    <h2>All Products</h2>
+                      <!-- Button trigger modal -->
+                      <div>
+                        <button
+                        type="button"
+                        class="btn btn-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                      >
+                      <i class="fa-solid fa-plus"></i>
+                        New
+                      </button>
+                        <a
+                        href="./index.html"
+                        class="btn btn-warning"
+                      >
+                      <i class="fa-solid fa-plane-departure"></i>
+                      </a>
+                      </div>
+                </div>
+              <hr />
+              <table class="table shop-data" id="productTable">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Stock</th>
+                    <th>Status</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="product-list"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Create New Student</h5>
+            <button
+            id="modalCloseBtn"
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="msg"></div>
+            <form id="product-form">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="my-3">
+                    <label for="name">name</label>
+                    <input required id="name" name="name" type="text" class="form-control" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="my-3">
+                    <label for="photo">photo</label>
+                    <input required id="photo" name="photo" type="text" class="form-control" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="my-3">
+                    <label for="category">Category</label>
+                    <select class="form-control" name="category" id="category">
+                        <option value="">- Category -</option>
+                        <option value="Clothing & Apparel">Clothing & Apparel</option>
+                        <option value="Footwear & Shoes">Footwear & Shoes</option>
+                        <option value="Electronics & Gadgets">Electronics & Gadgets</option>
+                        <option value="Games & Toys">Games & Toys</option>
+                        <option value="Veterinary & Pet Items">Veterinary & Pet Items</option>
+                        <option value="Stationery">Stationery</option>
+                        <option value="Tupperware">Tupperware</option>
+                        <option value="Furniture">Furniture</option>
+                        <option value="Sports Products">Sports Products</option>
+                      </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="my-3">
+                      <label for="stock">Stock</label>
+                      <input required id="stock" name="stock" type="number" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="my-3">
+                      <label for="price">Price</label>
+                      <input required id="price" name="price" type="number" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="my-3">
+                      <span class="d-block fw-medium ">Select Status</span>
+                      <input required  type="radio" id="published" name="status" value="published">
+                      <label for="published">Published</label>
+                      <br>
+                      <input required type="radio" id="unpublished" name="status" value="unpublished">
+                      <label for="unpublished">Unpublished</label>
+                    </div>
+                  </div>
+                <div class="col-md-12">
+                  <div class="my-3">
+                    <label for="des">Description</label>
+                    <textarea class="form-control" required name="des" id="des"></textarea>
+                  </div>
+                </div>
+                <div class="col-md-12">  
+              <div class="mt-3 mb-1 ">
+                <input type="checkbox" id="validateSubmit" name="validateSubmit">
+                <label class="user-select-none" for="validateSubmit">I Accept. All the value is Validate</label>
+              </div>
+                </div>
+                <div class="col-md-12">
+                  <div>
+                    <input
+                      type="submit"
+                      class="btn btn-primary w-100"
+                      value="Submit"
+                    />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- edit data modal -->
+    <div
+      class="modal fade"
+      id="exampleModal3"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel3"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel3">Update Data</h5>
+            <button
+            id="editModalClose"
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="msg-edit"></div>
+            <form id="product-update-form"></form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Re Stock product modal -->
+    <div
+      class="modal fade"
+      id="exampleModal1"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel2"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Stock</h5>
+            <button
+            id="modalCloseBtn1"
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="stock-msg"></div>
+            <div id="ReStock">
+            <form id="reStockForm">
+              <div class="my-3">
+                <label for="restock">Stock</label>
+                <input required id="restock" name="restock" type="number" class="form-control" />
+              </div>
+              <div>
+                <input
+                  type="submit"
+                  class="btn btn-primary w-100"
+                  value="Submit"
+                />
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- show product modal -->
+    <div
+      class="modal fade"
+      id="exampleModal2"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel2"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="showData">
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.0.7/datatables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.bundle.min.js"></script>
+    <script src="src/data.js"></script>
+    <script src="src/models.js"></script>
+    <script src="src/functions.js"></script>
+    <script src="src/main.js"></script>
+    <script>
+            $('#productTable').DataTable();
+        </script>
+  </body>
+</html>

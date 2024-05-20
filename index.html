@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name='description' content='this template is made with ❤ by tanzir ibne ali' />
+        <meta name='keywords' content='HTML,CSS,JavaScript' />
+        <meta name='author' content='Tanzir Ibne ali' />
+    
+        <link rel="icon" href="./assets/img/favicon.svg">
+    
+            <!-- Data Table -->
+            <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.0.7/datatables.min.css" rel="stylesheet">
+    
+        <!-- https://cdnjs.com/libraries/twitter-bootstrap/5.0.0-beta1 -->
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css"
+        />
+        <!-- https://cdnjs.com/libraries/font-awesome -->
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+    
+    
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <title> Shop Now </title>
+      </head>
+<body>
+
+    <section class="main">
+      <div class="card">
+        <div class="card-body">
+          <div class="msg"></div>
+          <form id="customer-form">
+                <div class="my-3">
+                  <label for="name">Name</label>
+                  <input required id="name" name="name" type="text" class="form-control" />
+                </div>
+                <div class="my-3">
+                  <label for="email">Email</label>
+                  <input required id="email" name="email" type="email" class="form-control" />
+                </div>
+                <div class="my-3">
+                  <label for="profession">Profession</label>
+                  <input required id="profession" name="profession" type="text" class="form-control" />
+                </div>
+                <div class="my-3">
+                  <label for="category">Category</label>
+                  <select class="form-control" name="category" id="category">
+                      <option selected value="all">All Category</option>
+                      <option value="Clothing & Apparel">Clothing & Apparel</option>
+                      <option value="Footwear & Shoes">Footwear & Shoes</option>
+                      <option value="Electronics & Gadgets">Electronics & Gadgets</option>
+                      <option value="Games & Toys">Games & Toys</option>
+                      <option value="Veterinary & Pet Items">Veterinary & Pet Items</option>
+                      <option value="Stationery">Stationery</option>
+                      <option value="Tupperware">Tupperware</option>
+                      <option value="Furniture">Furniture</option>
+                      <option value="Sports Products">Sports Products</option>
+                    </select>
+                </div>
+                <div class="my-3">
+                  <label for="productName">Product Name</label>
+                  <select class="form-control" name="productName" id="productName">
+                  </select>
+                </div>
+                  <div class="my-3">
+                    <label for="quantity">Quantity</label>
+                    <input required id="quantity" name="quantity" type="number" class="form-control" />
+                  </div>
+            <div class="mt-3 mb-1 ">
+              <input type="checkbox" id="validateSubmit" name="validateSubmit">
+              <label class="user-select-none" for="validateSubmit">I Accept. All the value is Validate</label>
+            </div>
+                <div>
+                  <input
+                    type="submit"
+                    class="btn btn-primary w-100"
+                    value="Buy Now"
+                  />
+                </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.bundle.min.js"></script>
+    <script src="src/data.js"></script>
+    <script src="src/models.js"></script>
+    <script src="src/functions.js"></script>
+    <script src="src/index.js"></script>
+</body>
+</html>
