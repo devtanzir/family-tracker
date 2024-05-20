@@ -31,20 +31,6 @@ const cellCheck = (cell) => {
   return pattern.test(cell);
 };
 
-const nameExist = (name) => {
-  const allData = getDataLs("products");
-  if (!allData) {
-    return true;
-  }
-
-  const result = allData.filter((item) => item.name === name);
-  if (result.length === 0) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
 /**
  *
  * @param {Number} value
@@ -81,86 +67,24 @@ const createId = () => {
  * @returns time ago function
  */
 
-const formatPostTime = (postDate) => {
-  const currentDate = new Date();
-  const diff = currentDate - postDate;
-
-  const seconds = Math.floor(diff / 1000);
+const formatPostTime = (timestamp) => {
+  const currentTime = new Date();
+  const eventTime = new Date(timestamp);
+  const timeDifference = currentTime - eventTime;
+  const seconds = Math.floor(timeDifference / 1000);
   const minutes = Math.floor(seconds / 60);
   const hours = Math.floor(minutes / 60);
   const days = Math.floor(hours / 24);
 
   if (days > 7) {
-    return postDate.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
-  } else if (days > 1) {
-    return `${days} days ago`;
-  } else if (days === 1) {
-    return "Yesterday";
-  } else if (hours >= 1) {
-    return `${hours} hour${hours > 1 ? "s" : ""} ago`;
-  } else if (minutes >= 1) {
-    return `${minutes} minute${minutes > 1 ? "s" : ""} ago`;
+    return eventTime.toLocaleDateString(); // If more than 7 days, return full date
+  } else if (days > 0) {
+    return days === 1 ? " day ago" : days + " days ago";
+  } else if (hours > 0) {
+    return hours === 1 ? "1 hour ago" : hours + " hours ago";
+  } else if (minutes > 0) {
+    return minutes === 1 ? "1 minute ago" : minutes + " minutes ago";
   } else {
     return "Just now";
-  }
-};
-
-/**
- * Check the stock
- * @param {String} name
- * @param {Number} quantity
- */
-const isStock = (name, quantity) => {
-  const allData = getDataLs("products");
-
-  const filtered = allData.filter(
-    (item) => item.name === name && parseInt(item.stock) >= parseInt(quantity)
-  );
-  if (filtered.length === 0) {
-    return false;
-  } else {
-    return true;
-  }
-};
-
-/**
- * remove the stock from database
- * @param {String} name
- * @param {Number} quantity
- */
-const removeStockFromLs = (name, quantity) => {
-  const allData = getDataLs("products");
-
-  const updatedData = allData.map((item) => {
-    if (item.name === name) {
-      return {
-        ...item,
-        stock: parseInt(item.stock) - parseInt(quantity),
-      };
-    }
-    return item;
-  });
-  localStorage.setItem("products", JSON.stringify(updatedData));
-};
-
-/**
- * filter the product name
- * @param {String} item
- * @returns removed the last 3 word
- */
-const filterItemVal = (item) => {
-  const arr = item.split(" ");
-  return arr.slice(0, -3).join(" ");
-};
-
-const stringReducer = (str) => {
-  if (str.length <= 150) {
-    return str;
-  } else {
-    return str.slice(0, 100);
   }
 };

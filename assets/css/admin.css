@@ -30,33 +30,3 @@ input[type="number"] {
 table{
     width: 100% !important;
 }
-
-/** Show Single Data */
-
-div#showData img {
-    border-radius: 50%;
-    height: 250px;
-    width: 250px;
-    object-fit: cover;
-}
-
-div#showData {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-}
-
-div#showData h4 {
-    font-size: 35px;
-    color: #000;
-    text-transform: uppercase;
-    margin: 0;
-}
-
-div#showData p {
-    font-size: 20px;
-    color: #666;
-    text-transform: capitalize;
-}
