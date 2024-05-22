@@ -303,9 +303,12 @@ remainBalance();
     "December",
   ];
   const currentMonth = new Date().getMonth(); // getMonth() returns 0-11
+  const currentYear = new Date().getFullYear(); // getFullYear()
 
   // Set the month in the HTML element with id "month"
-  document.getElementById("month").textContent = months[currentMonth];
+  document.getElementById(
+    "month"
+  ).textContent = `${months[currentMonth]} ${currentYear}`;
 })();
 /**
  * Product create form
